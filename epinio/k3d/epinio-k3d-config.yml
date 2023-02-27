@@ -1,0 +1,24 @@
+apiVersion: k3d.io/v1alpha4 
+kind: Simple 
+metadata:
+  name: epinio-k3d
+
+kubeAPI:
+  hostIP: "127.0.0.1"
+  hostPort: "6445" 
+image: rancher/k3s:v1.23.16-k3s1
+subnet: "172.28.0.0/16"
+
+options:
+  k3d:
+    wait: true
+    timeout: "60s"
+    disableLoadbalancer: false
+    disableImageVolume: false
+    disableRollback: false
+    loadbalancer:
+      configOverrides:
+        - settings.workerConnections=2048
+  kubeconfig:
+    updateDefaultKubeconfig: true
+    switchCurrentContext: true

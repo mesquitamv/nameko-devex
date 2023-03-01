@@ -18,6 +18,8 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+sleep 40
+
 bash ${SCRIPTPATH}/charts/epinio/epinio-install.sh
 if [ $? -ne 0 ]; then
   exit 1

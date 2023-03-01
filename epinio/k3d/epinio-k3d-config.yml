@@ -1,7 +1,7 @@
 apiVersion: k3d.io/v1alpha4 
 kind: Simple 
 metadata:
-  name: epinio-k3d
+  name: epinio-dev
 
 kubeAPI:
   hostIP: "127.0.0.1"

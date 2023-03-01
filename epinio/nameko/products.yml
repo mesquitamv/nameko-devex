@@ -1,0 +1,15 @@
+name: products
+configuration:
+  instances: 1
+  environment:
+    REDIS_HOST: "redis"
+    REDIS_PORT: "6379"
+    REDIS_INDEX: "11"
+    REDIS_PASSWORD: "password"
+    RABBIT_PASSWORD: "guest"
+    RABBIT_USER: "guest"
+    RABBIT_HOST: "rabbit"
+    RABBIT_PORT: "5672"
+    RABBIT_MANAGEMENT_PORT: "15672"
+origin:
+  path: ../../products

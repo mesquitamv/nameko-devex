@@ -1,0 +1,12 @@
+name: clipboard
+configuration:
+  instances: 1
+  environment:
+    MONGODB_USERNAME: root
+    MONGODB_PASSWORD: CwXssNbW5W
+    MONGODB_DATABASE: admin
+    MONGODB_HOSTNAME: xf1c982e835a68959859b5d3da2b8-mongodb.workspace.svc.cluster.local
+    MONGODB_PORT: 27017
+  configurations:
+origin:
+  path: .

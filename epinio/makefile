@@ -5,7 +5,10 @@ deploy:
 	$(MAKE) deploy-epinio
 	$(MAKE) epinio-login
 	$(MAKE) deploy-epinio-service
-	
+	$(MAKE) create-clipboard-manifest
+	$(MAKE) deploy-clipboard-backend
+	$(MAKE) delete-clipboard-manifest
+
 undeploy:
 	k3d cluster delete epinio-dev
 
@@ -35,11 +38,10 @@ deploy-ingress-nginx:
 		--values helm/ingress-nginx/values-ingress-nginx.yml
 
 deploy-epinio:
-	sleep 30
 	helm install epinio -n epinio \
-	--create-namespace epinio/epinio \
-	--values helm/epinio/values-epinio.yml \
-	--set global.domain=`kubectl get svc -n ingress-nginx ingress-nginx-controller -o jsonpath={@.status.loadBalancer.ingress} | jq -r .[].ip`.omg.howdoi.website
+		--create-namespace epinio/epinio \
+		--values helm/epinio/values-epinio.yml \
+		--set global.domain=`kubectl get svc -n ingress-nginx ingress-nginx-controller -o jsonpath={@.status.loadBalancer.ingress} | jq -r .[].ip`.omg.howdoi.website
 
 epinio-login:
 	epinio login -u admin https://epinio.`kubectl get svc -n ingress-nginx ingress-nginx-controller -o jsonpath={@.status.loadBalancer.ingress} | jq -r .[].ip`.omg.howdoi.website -p password --trust-ca
@@ -49,3 +51,11 @@ deploy-epinio-service:
 	epinio service create mongodb-dev mongodb
 	epinio service bind mongodb clipboard
 
+create-clipboard-manifest:
+	bash epinio-app/replace-values.sh
+
+delete-clipboard-manifest:
+	rm epinio-app/clipboard-backend.yml*
+
+deploy-clipboard-backend:
+	epinio push epinio-app/clipboard-backend.yml

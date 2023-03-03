@@ -22,7 +22,7 @@ These technologies was used on this example to deploy all necessary infrastructu
 
 ## Application to be deployeed
 
-In this example was choosed an simple application called *clipboard-backend* to demonstrate how push an application on kubernetes cluster using Epinio.
+In this example was choosed an simple application called [clipboard-backend](https://github.com/mesquitamv/clipboard-backend) to demonstrate how push an application on kubernetes cluster using Epinio.
 
 This application was written using Node.js and use MongoDB as database. Your routes consists:
 

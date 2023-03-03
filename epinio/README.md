@@ -64,10 +64,10 @@ kubectl get ingress -A
 And the output will look like:
 
 ```bash
-NAMESPACE   NAME                        CLASS   HOSTS                                     ADDRESS      PORTS     AGE
-epinio      dex                         nginx   auth.172.26.0.2.omg.howdoi.website        172.26.0.2   80, 443   xxx
-epinio      epinio                      nginx   epinio.172.26.0.2.omg.howdoi.website      172.26.0.2   80, 443   xxx
-workspace   rclipboard-clipboardxxxxx   nginx   clipboard.172.26.0.2.omg.howdoi.website   172.26.0.2   80, 443   xxx
+NAMESPACE   NAME                        CLASS   HOSTS                                               ADDRESS                PORTS     AGE
+epinio      dex                         nginx   auth.<IP of Loadbalancer>.omg.howdoi.website        <IP of Loadbalancer>   80, 443   xxx
+epinio      epinio                      nginx   epinio.<IP of Loadbalancer>.omg.howdoi.website      <IP of Loadbalancer>   80, 443   xxx
+workspace   rclipboard-clipboardxxxxx   nginx   clipboard.<IP of Loadbalancer>.omg.howdoi.website   <IP of Loadbalancer>   80, 443   xxx
 ```
 
 Username and password of epinio interface will be *admin* and *password* respectively
@@ -75,7 +75,7 @@ Username and password of epinio interface will be *admin* and *password* respect
 To test app, you can execute the following command:
 
 ```bash
-curl -X GET https://clipboard.172.26.0.2.omg.howdoi.website/clipboard --insecure
+curl -X GET https://clipboard.<IP of Loadbalancer>.omg.howdoi.website/clipboard --insecure
 ```
 
 And an empty json *[]* will be returned.
@@ -91,7 +91,7 @@ This command will call app API to post random values on MongoDB.
 To check if app load executed with success you can access clipboard endpoint again:
 
 ```bash
-curl -X GET https://clipboard.172.26.0.2.omg.howdoi.website/clipboard --insecure
+curl -X GET https://clipboard.<IP of Loadbalancer>.omg.howdoi.website/clipboard --insecure
 ```
 
 And the output will look like:

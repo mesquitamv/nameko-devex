@@ -61,4 +61,4 @@ deploy-clipboard-backend:
 	epinio push epinio-app/clipboard-backend.yml
 
 load-clipboard-backend:
-	bash app/load/load-clipboard-backend.sh
+	bash epinio-app/load-clipboard-backend.sh

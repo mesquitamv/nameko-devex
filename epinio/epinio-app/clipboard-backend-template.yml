@@ -9,4 +9,6 @@ configuration:
     MONGODB_PORT: 27017
   configurations:
 origin:
-  path: ../app/clipboard-backend
+  git: 
+    url: https://github.com/mesquitamv/clipboard-backend
+    revision: master

@@ -11,7 +11,7 @@ To execute this environment you'll need:
 - [Helm](https://helm.sh/docs/intro/install/)
 - [Epinio CLI](https://docs.epinio.io/installation/install_epinio_cli)
 
-## What technologies was used
+## What technologies were used
 
 These technologies was used on this example to deploy all necessary infrastructure:
 

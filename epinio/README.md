@@ -1,6 +1,6 @@
 # Run an App using Epinio
 
-In this example we'll deploy a simple application called *clipboard-backend* using Epinio to interface app with Kubernetes cluster
+In this lab we'll deploy a simple application called [clipboard-backend](https://github.com/mesquitamv/clipboard-backend) using Epinio to interface app with Kubernetes cluster.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ To execute this environment you'll need:
 
 ## What technologies were used
 
-These technologies was used on this example to deploy all necessary infrastructure:
+These technologies were used in this lab to deploy all necessary infrastructure:
 
 - K3S to deploy a kubernetes cluster;
 - Cert Manager to provides SSL Certificates for apps;
@@ -23,9 +23,9 @@ These technologies was used on this example to deploy all necessary infrastructu
 
 ## Application to be deployeed
 
-In this example was choosed an simple application called [clipboard-backend](https://github.com/mesquitamv/clipboard-backend) to demonstrate how push an application on kubernetes cluster using Epinio.
+In this lab a simple application was chosen called [clipboard-backend](https://github.com/mesquitamv/clipboard-backend) to demonstrate how push an application on kubernetes cluster using Epinio.
 
-This application was written using Node.js and use MongoDB as database. Your routes consists:
+This application was written using Node.js and uses MongoDB as database. Your routes consists:
 
 ```bash
 GET /clipboard # Gell all data stored on database
@@ -41,7 +41,7 @@ Example of data:
 
 ## Deploy K3D + Epinio + App
 
-For deploy the environment in your desktop you must be in *epinio* folder located on root of this repository:
+For deploy the lab environment in your desktop you must be in *epinio* folder located on root of this repository:
 
 ```bash
 cd epinio
@@ -53,7 +53,7 @@ Run the following command:
 make deploy
 ```
 
-This command will deploy a K3S Cluster and deploy inside it Cert Manager, NGINX Ingress, Epinio and the example app with your MongoDB configured. 
+This command will deploy a K3S Cluster and deploy Cert Manager, NGINX Ingress, Epinio and the example app with your MongoDB configured. 
 
 To get Epinio and app endpoints use:
 
@@ -62,6 +62,7 @@ kubectl get ingress -A
 ```
 
 And the output will look like:
+
 ```bash
 NAMESPACE   NAME                        CLASS   HOSTS                                     ADDRESS      PORTS     AGE
 epinio      dex                         nginx   auth.172.26.0.2.omg.howdoi.website        172.26.0.2   80, 443   xxx
@@ -85,9 +86,10 @@ To load the app, use this command:
 make load-clipboard-backend
 ```
 
-This command will call app API to post random values on MongoDB
+This command will call app API to post random values on MongoDB.
 
-To check if load executed with success you can access clipboard endpoint again:
+To check if app load executed with success you can access clipboard endpoint again:
+
 ```bash
 curl -X GET https://clipboard.172.26.0.2.omg.howdoi.website/clipboard --insecure
 ```

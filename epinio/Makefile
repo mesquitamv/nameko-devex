@@ -13,7 +13,7 @@ undeploy:
 	k3d cluster delete epinio-dev
 
 deploy-k3d:
-	k3d cluster create --config k3d/epinio-k3d-config.yml --k3s-arg "--disable=traefik@server:0"
+	K3D_FIX_DNS=1 k3d cluster create --config k3d/epinio-k3d-config.yml
 
 init-helm:
 	helm repo add jetstack https://charts.jetstack.io

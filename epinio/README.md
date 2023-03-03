@@ -9,6 +9,7 @@ To execute this environment you'll need:
 - [Docker](https://docs.docker.com/engine/install/ubuntu/)
 - [K3D](https://k3d.io/v5.4.7/#installation)
 - [Helm](https://helm.sh/docs/intro/install/)
+- [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
 - [Epinio CLI](https://docs.epinio.io/installation/install_epinio_cli)
 
 ## What technologies were used
